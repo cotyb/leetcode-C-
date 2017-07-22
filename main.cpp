@@ -58,6 +58,19 @@ public:
         l1 = res;
         return l1;
     }
+public:
+    int hammingDistance(int x, int y) {
+
+        int res = 0;
+        while(x || y){
+            if((x&1) != (y&1)){
+                res += 1;
+            }
+            x = x >> 1;
+            y = y >> 1;
+        }
+        return res;
+    }
 };
 
 
@@ -81,10 +94,9 @@ int main(){
 
     Solution solution = Solution();
     ListNode *res = solution.addTwoNumbers(listNode3, listNode1);
-    while (res){
-        cout << res->val;
-        res=res->next;
-    }
+
+    cout << solution.hammingDistance(4, 4);
+
 
     return 0;
 }
